@@ -76,11 +76,12 @@
 
     // Legacy
     "nomen"         : false,    // true: Prohibit dangling `_` in variables
-    "onevar"        : true,     // true: Allow only one `var` statement per function
+    "onevar"        : false,     // true: Allow only one `var` statement per function
     "passfail"      : false,    // true: Stop on first error
     "white"         : true,     // true: Check against strict whitespace and indentation rules
 
     // Custom Globals
     "predef"        : [         // additional predefined global variables
+        "define"
     ]
 }
