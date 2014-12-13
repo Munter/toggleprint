@@ -27,7 +27,12 @@
   "devDependencies": {
     "jsdom": "^1.4.1",
     "jshint": "^2.5.10",
+    "magicpen-prism": "^0.3.0",
     "mocha": "^2.0.1",
-    "mocha-jsdom": "^0.2.0"
+    "mocha-jsdom": "^0.2.0",
+    "sinon": "^1.12.2",
+    "unexpected": "^5.0.0-beta24",
+    "unexpected-jsdom": "^5.0.0",
+    "unexpected-sinon": "^3.0.2"
   }
 }
