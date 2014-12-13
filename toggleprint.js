@@ -40,16 +40,19 @@
     });
   }
 
-  return function (options) {
+  function togglePrint(options) {
     options = options || {};
 
     options.key = options.key || 'p';
 
-    // TODO: Figure out how to map a key to keycode
     document.addEventListener('keydown', function (e) {
       if (String.fromCharCode(e.keyCode).toLowerCase() === options.key.toLowerCase()) {
         toggle();
       }
     });
-  };
+  }
+
+  togglePrint.toggle = toggle;
+
+  return togglePrint;
 }));
