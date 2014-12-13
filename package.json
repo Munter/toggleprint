@@ -22,14 +22,19 @@
   "homepage": "https://github.com/Munter/toggleprint",
   "scripts": {
     "lint": "jshint .",
-    "test": "npm run lint && mocha"
+    "test": "npm run lint && mocha",
+    "travis": "npm run lint && npm run coverage",
+    "coverage": "NODE_ENV=development ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- --reporter dot"
   },
   "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.5",
     "jsdom": "^1.4.1",
     "jshint": "^2.5.10",
     "magicpen-prism": "^0.3.0",
     "mocha": "^2.0.1",
     "mocha-jsdom": "^0.2.0",
+    "mocha-lcov-reporter": "0.0.1",
     "sinon": "^1.12.2",
     "unexpected": "^5.0.0-beta24",
     "unexpected-jsdom": "^5.0.0",
