@@ -1,10 +1,10 @@
 toggleprint
 ===========
 
-[![NPM version](https://badge.fury.io/js/toggleprint.png)](http://badge.fury.io/js/toggleprint)
-[![Build Status](https://travis-ci.org/Munter/toggleprint.png?branch=master)](https://travis-ci.org/Munter/toggleprint)
-[![Coverage Status](https://coveralls.io/repos/Munter/toggleprint/badge.png?branch=master)](https://coveralls.io/r/Munter/toggleprint?branch=master)
-[![Dependency Status](https://david-dm.org/Munter/toggleprint.png)](https://david-dm.org/Munter/toggleprint)
+[![npm version](https://badge.fury.io/js/toggleprint.svg)](http://badge.fury.io/js/toggleprint)
+[![Build Status](https://travis-ci.org/Munter/toggleprint.svg?branch=master)](https://travis-ci.org/Munter/toggleprint)
+[![Coverage Status](https://img.shields.io/coveralls/Munter/toggleprint.svg)](https://coveralls.io/r/Munter/toggleprint)
+[![Dependency Status](https://david-dm.org/Munter/toggleprint.svg)](https://david-dm.org/Munter/toggleprint)
 
 
 
