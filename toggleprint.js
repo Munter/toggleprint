@@ -7,12 +7,13 @@
     root.togglePrint = factory();
   }
 }(this, function () {
-  // keep internal print on/off state
-  var printMode = false;
   var screens = [];
   var prints = [];
 
   function toggle() {
+    var dataNode = document.head.parentNode;
+    var printMode = dataNode.getAttribute('data-printmode') === 'enabled';
+
     if (!printMode) {
       // query the dom each time print is toggled on. Detects possible dynamic loaded stylesheets
       var mediaNodes = Array.prototype.slice.call(document.getElementsByTagName('link')).filter(function (node) {
@@ -38,6 +39,8 @@
       // When toggling print on, set media print styles to 'all'
       node.setAttribute('media', printMode ? 'all' : 'print');
     });
+
+    dataNode.setAttribute('data-printmode', printMode ? 'enabled' : 'disabled');
   }
 
   function togglePrint(options) {
