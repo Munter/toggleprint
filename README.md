@@ -6,7 +6,31 @@ toggleprint
 [![Coverage Status](https://img.shields.io/coveralls/Munter/toggleprint.svg)](https://coveralls.io/r/Munter/toggleprint)
 [![Dependency Status](https://david-dm.org/Munter/toggleprint.svg)](https://david-dm.org/Munter/toggleprint)
 
+Toggleprint lets you toggle the media attributes of your document stylesheets to visualize what the print preview would show, but in your browser window instead.
+This gives you a very quick way to work with your print styles.
 
+It is recommended that you combine this with some sort of live CSS reloading for a very quick development roundtrip.
+
+
+Usage
+-----
+
+Toggleprint can be included via CommonJS, AMD or directly as a script tag.
+
+
+``` javascript
+// Toggle print mode on/off
+togglePrint.toggle();
+
+// Set up a hotkey that will toggle print mode on/off
+// 'p' is the default hotkey
+togglePrint();
+
+// Set up a custom hotkey 'z' to toggle print mode
+togglePrint({
+  key: 'z'
+})
+```
 
 
 License
