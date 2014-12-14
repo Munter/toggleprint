@@ -49,9 +49,15 @@ describe.skip('Hotkey setup', function () {
 
         window.togglePrint = require('../toggleprint');
 
+        sinon.spy(window.togglePrint, 'toggle');
+
         next();
       }
     });
+  });
+
+  afterEach(function () {
+    window.togglePrint.toggle.restore();
   });
 
   it('should not listen to any keys when not active', function () {
@@ -59,11 +65,9 @@ describe.skip('Hotkey setup', function () {
   });
 
   it('should listen to the `p` keypress by default', function () {
-    var spy = sinon.spy(window.togglePrint, 'toggle');
-
     global.triggerKeyDown(window, 'p');
 
-    expect(spy, 'was called once');
+    expect(window.togglePrint.toggle, 'was called once');
   });
 
   it('should listen to the `p` keypress by default', function () {
