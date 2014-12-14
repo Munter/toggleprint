@@ -6,6 +6,8 @@ var expect = require('unexpected')
 expect.output.installPlugin(require('magicpen-prism'));
 
 // var sinon = require('sinon');
+var jsdom = require('jsdom');
+
 var togglePrint = require('../toggleprint');
 
 describe('Function signature', function () {
@@ -18,30 +20,82 @@ describe('Function signature', function () {
   });
 });
 
-describe('Hotkey setup', function () {
+describe.skip('Hotkey setup', function () {
+
   it('should not listen to any keys when not active', function () {
-
+    expect(window.togglePrint, 'to be a', Function);
   });
 
   it('should listen to the `p` keypress by default', function () {
-
+    expect(window.togglePrint, 'to be a', Function);
   });
 
   it('should listen to the `p` keypress by default', function () {
-
+    expect(window.togglePrint, 'to be a', Function);
   });
 });
 
 describe('Stylesheet media query toggling', function () {
-  it('should leave styleshets without media queries alone', function () {
 
+  beforeEach(function (next) {
+    jsdom.env({
+      html: 'Hello world',
+      src: require('fs').readFileSync('./toggleprint.js').toString(),
+      done: function (errors, window) {
+        if (errors) {
+          return next(errors);
+        }
+
+        global.window = window;
+        global.document = window.document;
+        window.console = global.console;
+
+        next();
+      }
+    });
+  });
+
+  it('should leave styleshets without media queries alone', function () {
+    var outerHTML = '<link rel="stylesheet" href="default.css">';
+    document.head.innerHTML += outerHTML;
+    var node = document.head.lastChild;
+
+    expect(node.getAttribute('media'), 'to be', null);
+
+    window.togglePrint.toggle();
+
+    expect(node.getAttribute('media'), 'to be', null);
   });
 
   it('should change media type `print` stylesheets to `all`', function () {
+    var outerHTML = '<link rel="stylesheet" href="default.css" media="print">';
+    document.head.innerHTML += outerHTML;
+    var node = document.head.lastChild;
 
+    expect(node.getAttribute('media'), 'to be', 'print');
+
+    window.togglePrint.toggle();
+
+    expect(node.getAttribute('media'), 'to be', 'all');
+
+    window.togglePrint.toggle();
+
+    expect(node.getAttribute('media'), 'to be', 'print');
   });
 
-  it('should change media type `screen` stylesheets to `none`', function () {
+  it('should change media type `screen` stylesheets to `none` and back', function () {
+    var outerHTML = '<link rel="stylesheet" href="default.css" media="screen">';
+    document.head.innerHTML += outerHTML;
+    var node = document.head.lastChild;
 
+    expect(node.getAttribute('media'), 'to be', 'screen');
+
+    window.togglePrint.toggle();
+
+    expect(node.getAttribute('media'), 'to be', 'none');
+
+    window.togglePrint.toggle();
+
+    expect(node.getAttribute('media'), 'to be', 'screen');
   });
 });
