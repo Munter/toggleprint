@@ -1,0 +1,28 @@
+{
+  "name": "toggleprint",
+  "main": "toggleprint.js",
+  "authors": [
+    "Peter Müller <munter@fumle.dk>"
+  ],
+  "description": "Defines a hotkey that can toggle your print stylesheets to be applied on your screen for fast print stylesheet iteration",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "print",
+    "stylesheet",
+    "browser",
+    "toggle",
+    "hotkey"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/Munter/toggleprint",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "coverage"
+  ]
+}
