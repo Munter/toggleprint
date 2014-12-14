@@ -20,6 +20,8 @@
     "url": "https://github.com/Munter/toggleprint/issues"
   },
   "homepage": "https://github.com/Munter/toggleprint",
+  "main": "toggleprint",
+  "files": ["toggleprint.js"],
   "scripts": {
     "lint": "jshint .",
     "test": "npm run lint && mocha",
