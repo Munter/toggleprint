@@ -68,7 +68,7 @@ describe('Stylesheet media query toggling', function () {
     expect(node.getAttribute('media'), 'to be', null);
   });
 
-  it('should change media type `print` stylesheets to `all`', function () {
+  it('should change media type `print` stylesheets to `all` and back', function () {
     var outerHTML = '<link rel="stylesheet" href="default.css" media="print">';
     document.head.innerHTML += outerHTML;
     var node = document.head.lastChild;
@@ -98,5 +98,32 @@ describe('Stylesheet media query toggling', function () {
     window.togglePrint.toggle();
 
     expect(node.getAttribute('media'), 'to be', 'screen');
+  });
+
+  it('should handle multiple stylesheet toggles at the same time', function () {
+    var order = ['all', 'all', '', '', 'screen', 'screen', 'print', 'print'];
+    var toggled = ['all', 'all', '', '', 'none', 'none', 'all', 'all'];
+    var outerHTML = order.map(function (media, idx) {
+      return '<link rel="stylesheet" href="' + idx + '.css" media="' + media + '">';
+    });
+    document.head.innerHTML += outerHTML;
+
+    var nodes = Array.prototype.slice.apply(document.getElementsByTagName('link'));
+
+    expect(nodes, 'to be an array whose items satisfy', function (node, idx) {
+      expect(node.getAttribute('media'), 'to be', order[idx]);
+    });
+
+    window.togglePrint.toggle();
+
+    expect(nodes, 'to be an array whose items satisfy', function (node, idx) {
+      expect(node.getAttribute('media'), 'to be', toggled[idx]);
+    });
+
+    window.togglePrint.toggle();
+
+    expect(nodes, 'to be an array whose items satisfy', function (node, idx) {
+      expect(node.getAttribute('media'), 'to be', order[idx]);
+    });
   });
 });
