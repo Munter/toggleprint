@@ -40,7 +40,6 @@ describe('Stylesheet media query toggling', function () {
   beforeEach(function (next) {
     jsdom.env({
       html: 'Hello world',
-      src: require('fs').readFileSync('./toggleprint.js').toString(),
       done: function (errors, window) {
         if (errors) {
           return next(errors);
@@ -49,6 +48,8 @@ describe('Stylesheet media query toggling', function () {
         global.window = window;
         global.document = window.document;
         window.console = global.console;
+
+        window.togglePrint = require('../toggleprint');
 
         next();
       }
