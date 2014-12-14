@@ -5,7 +5,7 @@ var expect = require('unexpected')
 
 expect.output.installPlugin(require('magicpen-prism'));
 
-// var sinon = require('sinon');
+var sinon = require('sinon');
 var jsdom = require('jsdom');
 
 var togglePrint = require('../toggleprint');
@@ -21,13 +21,49 @@ describe('Function signature', function () {
 });
 
 describe.skip('Hotkey setup', function () {
+  before(function () {
+    global.triggerKeyDown = function (window, keyCode) {
+      if (typeof keyCode === 'string') {
+        keyCode = keyCode.charCodeAt(0);
+      }
+
+      var document = window.document;
+
+      var event = document.createEvent('KeyboardEvent');
+      event.initKeyboardEvent('keydown', true, false, null, 0, false, 0, false, keyCode, 0);
+      document.dispatchEvent(event);
+    };
+  });
+
+  beforeEach(function (next) {
+    jsdom.env({
+      html: 'Hello world',
+      done: function (errors, window) {
+        if (errors) {
+          return next(errors);
+        }
+
+        global.window = window;
+        global.document = window.document;
+        window.console = global.console;
+
+        window.togglePrint = require('../toggleprint');
+
+        next();
+      }
+    });
+  });
 
   it('should not listen to any keys when not active', function () {
     expect(window.togglePrint, 'to be a', Function);
   });
 
   it('should listen to the `p` keypress by default', function () {
-    expect(window.togglePrint, 'to be a', Function);
+    var spy = sinon.spy(window.togglePrint, 'toggle');
+
+    global.triggerKeyDown(window, 'p');
+
+    expect(spy, 'was called once');
   });
 
   it('should listen to the `p` keypress by default', function () {
