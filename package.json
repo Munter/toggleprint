@@ -1,6 +1,6 @@
 {
   "name": "toggleprint",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Defines a hotkey that can toggle your print stylesheets to be applied on your screen for fast print stylesheet iteration",
   "author": "Peter Müller <munter@fumle.dk>",
   "main": "toggleprint",
@@ -20,8 +20,9 @@
     "url": "https://github.com/Munter/toggleprint/issues"
   },
   "homepage": "https://github.com/Munter/toggleprint",
-  "main": "toggleprint",
-  "files": ["toggleprint.js"],
+  "files": [
+    "toggleprint.js"
+  ],
   "scripts": {
     "lint": "jshint .",
     "test": "npm run lint && mocha",
