@@ -1,4 +1,3 @@
-/*global describe, it*/
 var expect = require('unexpected')
     .clone()
     .installPlugin(require('unexpected-sinon'))
