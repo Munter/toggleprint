@@ -39,6 +39,7 @@
     "mocha-jsdom": "^0.2.0",
     "mocha-lcov-reporter": "0.0.1",
     "sinon": "^1.12.2",
+    "uglify-js": "^2.4.16",
     "unexpected": "^5.0.0-beta24",
     "unexpected-jsdom": "^5.0.0",
     "unexpected-sinon": "^3.0.2"
