@@ -1,6 +1,6 @@
 {
   "name": "toggleprint",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Defines a hotkey that can toggle your print stylesheets to be applied on your screen for fast print stylesheet iteration",
   "author": "Peter Müller <munter@fumle.dk>",
   "main": "toggleprint",
