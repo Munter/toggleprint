@@ -7,10 +7,12 @@
     root.togglePrint = factory();
   }
 }(this, function () {
-  var screens = [];
-  var prints = [];
-
   function toggle() {
+    if (typeof window.__togglePrint !== 'object') {
+      window.__togglePrint = {};
+    }
+
+    var store = window.__togglePrint;
     var dataNode = document.head.parentNode;
     var printMode = dataNode.getAttribute('data-printmode') === 'enabled';
 
@@ -21,21 +23,21 @@
       });
 
       // When toggling, find media print and media screen files and track
-      screens = mediaNodes.filter(function (node) {
+      store.screens = mediaNodes.filter(function (node) {
         return node.getAttribute('media').toLowerCase() === 'screen';
       });
-      prints = mediaNodes.filter(function (node) {
+      store.prints = mediaNodes.filter(function (node) {
         return node.getAttribute('media').toLowerCase() === 'print';
       });
     }
 
     printMode = !printMode;
 
-    screens.forEach(function (node) {
+    store.screens.forEach(function (node) {
       // When toggling print on, set media screen styles to 'none' (is ths possible?)
       node.setAttribute('media', printMode ? 'none' : 'screen');
     });
-    prints.forEach(function (node) {
+    store.prints.forEach(function (node) {
       // When toggling print on, set media print styles to 'all'
       node.setAttribute('media', printMode ? 'all' : 'print');
     });
