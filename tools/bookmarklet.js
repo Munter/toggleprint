@@ -5,4 +5,5 @@ var result = uglify.minify(toggle.toString(), {
   fromString: true
 });
 
-process.stdout.write('javascript:(' + result.code + ')()');
+// Seriously jshint?
+process.stdout.write('javascript' + ':('.toLowerCase() + result.code + ')()');
