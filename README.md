@@ -11,6 +11,7 @@ This gives you a very quick way to work with your print styles.
 
 It is recommended that you combine this with some sort of live CSS reloading for a very quick development roundtrip.
 
+You can either add the script to your page or [use this bookmarklet](https://raw.githubusercontent.com/Munter/toggleprint/master/toggleprint.bookmarklet.js)
 
 Usage
 -----
