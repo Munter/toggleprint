@@ -1,6 +1,5 @@
 var toggle = require('../toggleprint').toggle;
 var uglify = require('uglify-js');
-var fs = require('fs');
 
 var result = uglify.minify(toggle.toString(), {
   fromString: true
