@@ -3,7 +3,7 @@ toggleprint
 
 [![npm version](https://badge.fury.io/js/toggleprint.svg)](http://badge.fury.io/js/toggleprint)
 [![Build Status](https://travis-ci.org/Munter/toggleprint.svg?branch=master)](https://travis-ci.org/Munter/toggleprint)
-[![Coverage Status](https://img.shields.io/coveralls/Munter/toggleprint.svg)](https://coveralls.io/r/Munter/toggleprint)
+[![Coverage Status](https://img.shields.io/coveralls/Munter/toggleprint.svg?style=flat)](https://coveralls.io/r/Munter/toggleprint)
 [![Dependency Status](https://david-dm.org/Munter/toggleprint.svg)](https://david-dm.org/Munter/toggleprint)
 
 Toggleprint lets you toggle the media attributes of your document stylesheets to visualize what the print preview would show, but in your browser window instead.
