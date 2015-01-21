@@ -20,7 +20,7 @@ describe('Function signature', function () {
   });
 });
 
-describe.skip('Hotkey setup', function () {
+describe('Hotkey setup', function () {
   before(function () {
     global.triggerKeyDown = function (window, keyCode) {
       if (typeof keyCode === 'string') {
@@ -62,16 +62,14 @@ describe.skip('Hotkey setup', function () {
 
   it('should not listen to any keys when not active', function () {
     expect(window.togglePrint, 'to be a', Function);
+
+    expect(window.togglePrint.toggle, 'was not called');
   });
 
-  it('should listen to the `p` keypress by default', function () {
+  it.skip('should listen to the `p` keypress by default', function () {
     global.triggerKeyDown(window, 'p');
 
     expect(window.togglePrint.toggle, 'was called once');
-  });
-
-  it('should listen to the `p` keypress by default', function () {
-    expect(window.togglePrint, 'to be a', Function);
   });
 });
 
